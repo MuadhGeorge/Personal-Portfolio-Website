@@ -27,6 +27,7 @@ import {
   Instagram,
   MapPin,
   Star,
+  Download,
 } from "lucide-react"
 import Image from "next/image"
 
@@ -118,7 +119,7 @@ export default function Portfolio() {
             </div>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex space-x-1">
+            <div className="hidden md:flex space-x-1 items-center">
               {navItems.map((item) => (
                 <button
                   key={item.id}
@@ -132,6 +133,14 @@ export default function Portfolio() {
                   {item.label}
                 </button>
               ))}
+              <a
+                href="/resume.pdf"
+                download
+                className="ml-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-medium hover:from-purple-700 hover:to-pink-700 transition-all duration-300 flex items-center gap-2"
+              >
+                <Download size={16} />
+                Resume
+              </a>
             </div>
 
             {/* Mobile Navigation Button */}
@@ -165,13 +174,13 @@ export default function Portfolio() {
           <div className="mb-12">
             {/* Profile Image */}
             <div className="relative w-48 h-48 mx-auto mb-8 group">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full animate-spin-slow p-1">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full p-1">
                 <div className="w-full h-full bg-black rounded-full overflow-hidden">
                   <Image
                     src="/images/muadh-profile.jpg"
                     alt="Muadh George"
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="object-cover transition-transform duration-500 group-hover:scale-110 animate-blur-in"
                   />
                 </div>
               </div>
@@ -205,6 +214,16 @@ export default function Portfolio() {
                 <ExternalLink size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
               </span>
             </button>
+            <a
+              href="/resume.pdf"
+              download
+              className="group px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/25"
+            >
+              <span className="flex items-center gap-2">
+                <Download size={20} />
+                Download Resume
+              </span>
+            </a>
             <button
               onClick={() => scrollToSection("contact")}
               className="group px-8 py-4 border-2 border-gray-600 rounded-full font-semibold hover:border-purple-500 hover:bg-purple-500/10 transition-all duration-300 transform hover:scale-105"
@@ -407,13 +426,65 @@ export default function Portfolio() {
           </div>
 
           <div className="space-y-8">
-            {/* CirrusLabs */}
+            {/* CodeByrd */}
             <Card className="bg-gray-900/50 border-gray-800 hover:border-purple-500/50 transition-all duration-300 border-l-4 border-l-purple-500 group hover:shadow-xl hover:shadow-purple-500/10">
               <CardHeader>
                 <div className="flex items-start justify-between">
                   <div>
-                    <CardTitle className="text-xl text-white group-hover:text-purple-400 transition-colors duration-300">
-                      CirrusLabs
+                    <a
+                      href="https://codebyrd.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xl text-white group-hover:text-purple-400 transition-colors duration-300 flex items-center gap-2 hover:underline"
+                    >
+                      CodeByrd
+                      <ExternalLink size={16} />
+                    </a>
+                    <CardDescription className="text-lg text-gray-300">Software Engineer (Contract)</CardDescription>
+                  </div>
+                  <div className="text-sm text-gray-400 flex items-center gap-1">
+                    <Calendar size={16} />
+                    2024
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-300 leading-relaxed">
+                  Automated lead capture and scalable payment processing. Reduced customer response latency by 40% and increased lead conversion by 20%. Architected AI chatbots using Google Cloud/OpenAI and integrated Stripe with Next.js.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Georgia Tech Research */}
+            <Card className="bg-gray-900/50 border-gray-800 hover:border-yellow-500/50 transition-all duration-300 border-l-4 border-l-yellow-500 group hover:shadow-xl hover:shadow-yellow-500/10">
+              <CardHeader>
+                <div className="flex items-start justify-between">
+                  <div>
+                    <CardTitle className="text-xl text-white group-hover:text-yellow-400 transition-colors duration-300">
+                      Georgia Institute of Technology
+                    </CardTitle>
+                    <CardDescription className="text-lg text-gray-300">Machine Learning Research Engineer</CardDescription>
+                  </div>
+                  <div className="text-sm text-gray-400 flex items-center gap-1">
+                    <Calendar size={16} />
+                    Aug 2023 – Dec 2023
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-300 leading-relaxed">
+                  Visualized complex urban inclusivity patterns for UN SDG initiatives. Optimized data processing efficiency by 25% and built predictive models using Python, Pandas, and TensorFlow.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Cirrus Labs */}
+            <Card className="bg-gray-900/50 border-gray-800 hover:border-blue-500/50 transition-all duration-300 border-l-4 border-l-blue-500 group hover:shadow-xl hover:shadow-blue-500/10">
+              <CardHeader>
+                <div className="flex items-start justify-between">
+                  <div>
+                    <CardTitle className="text-xl text-white group-hover:text-blue-400 transition-colors duration-300">
+                      Cirrus Labs
                     </CardTitle>
                     <CardDescription className="text-lg text-gray-300">Software Engineer Intern</CardDescription>
                   </div>
@@ -424,70 +495,21 @@ export default function Portfolio() {
                 </div>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-3 text-gray-300">
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
-                    Implemented JWT and Microsoft Authentication to enhance security by 30%
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
-                    Developed AI-driven chat services using OpenAI, reducing response times by 40%
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
-                    Integrated Azure Cognitive Services improving accessibility by 25%
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
-                    Utilized Azure Cosmos DB, improving query efficiency by 50%
-                  </li>
-                </ul>
+                <p className="text-gray-300 leading-relaxed">
+                  Strengthened platform security with JWT protocols. Boosted database query efficiency by 50% using Azure Cosmos DB and reduced support resolution time by 30%.
+                </p>
               </CardContent>
             </Card>
 
-            {/* Headstarter AI */}
+            {/* AMO Auto */}
             <Card className="bg-gray-900/50 border-gray-800 hover:border-green-500/50 transition-all duration-300 border-l-4 border-l-green-500 group hover:shadow-xl hover:shadow-green-500/10">
               <CardHeader>
                 <div className="flex items-start justify-between">
                   <div>
                     <CardTitle className="text-xl text-white group-hover:text-green-400 transition-colors duration-300">
-                      Headstarter AI
-                    </CardTitle>
-                    <CardDescription className="text-lg text-gray-300">Software Engineer Fellow</CardDescription>
-                  </div>
-                  <div className="text-sm text-gray-400 flex items-center gap-1">
-                    <Calendar size={16} />
-                    Aug 2024 – Present
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3 text-gray-300">
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
-                    Built 5+ AI-driven applications using NextJS, OpenAI, Pinecone, and StripeAPI
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
-                    Led a team of 4 engineers using MVC design patterns
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
-                    Trained by engineers from Amazon, Bloomberg, and Capital One on Agile and CI/CD
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            {/* AMO Auto */}
-            <Card className="bg-gray-900/50 border-gray-800 hover:border-blue-500/50 transition-all duration-300 border-l-4 border-l-blue-500 group hover:shadow-xl hover:shadow-blue-500/10">
-              <CardHeader>
-                <div className="flex items-start justify-between">
-                  <div>
-                    <CardTitle className="text-xl text-white group-hover:text-blue-400 transition-colors duration-300">
                       AMO Auto
                     </CardTitle>
-                    <CardDescription className="text-lg text-gray-300">Frontend Developer</CardDescription>
+                    <CardDescription className="text-lg text-gray-300">Software Developer Intern</CardDescription>
                   </div>
                   <div className="text-sm text-gray-400 flex items-center gap-1">
                     <Calendar size={16} />
@@ -496,46 +518,9 @@ export default function Portfolio() {
                 </div>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-3 text-gray-300">
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
-                    Developed responsive websites using Next.js, JSX, and Tailwind CSS, boosting engagement by 40%
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
-                    Implemented Edge Functions in Next.js to improve site performance significantly
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            {/* Georgia Tech Research */}
-            <Card className="bg-gray-900/50 border-gray-800 hover:border-yellow-500/50 transition-all duration-300 border-l-4 border-l-yellow-500 group hover:shadow-xl hover:shadow-yellow-500/10">
-              <CardHeader>
-                <div className="flex items-start justify-between">
-                  <div>
-                    <CardTitle className="text-xl text-white group-hover:text-yellow-400 transition-colors duration-300">
-                      Georgia Tech
-                    </CardTitle>
-                    <CardDescription className="text-lg text-gray-300">Research Assistant</CardDescription>
-                  </div>
-                  <div className="text-sm text-gray-400 flex items-center gap-1">
-                    <Calendar size={16} />
-                    Aug 2023 – Dec 2023
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3 text-gray-300">
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2 flex-shrink-0"></div>
-                    Analyzed data to support UN Sustainable Development Goals (SDGs 9 and 16)
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2 flex-shrink-0"></div>
-                    Created interactive dashboards and performed big data analytics
-                  </li>
-                </ul>
+                <p className="text-gray-300 leading-relaxed">
+                  Boosted user engagement by 40% and reduced page load latency by 35%. Developed a responsive Next.js 14 web app with Edge Functions and MySQL.
+                </p>
               </CardContent>
             </Card>
           </div>
@@ -554,54 +539,7 @@ export default function Portfolio() {
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* CodeByrd */}
-            <Card className="bg-gray-900/50 border-gray-800 hover:border-purple-500/50 transition-all duration-300 group hover:scale-105 hover:shadow-xl hover:shadow-purple-500/10">
-              <CardHeader>
-                <CardTitle className="text-xl text-white flex items-center gap-2 group-hover:text-purple-400 transition-colors duration-300">
-                  <Code size={20} />
-                  CodeByrd
-                </CardTitle>
-                <CardDescription className="text-gray-300">Full-stack Business Automation</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-300 mb-4">
-                  Developed a full-stack business automation and chatbot system leveraging Google Cloud services,
-                  significantly enhancing operational efficiency and user interactions.
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {["Google Cloud", "Next.js", "React", "Tailwind CSS"].map((tech) => (
-                    <Badge
-                      key={tech}
-                      variant="outline"
-                      className="border-purple-500/50 text-purple-300 hover:bg-purple-500/20"
-                    >
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
-                <div className="flex gap-2">
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    className="border-purple-500/50 text-purple-300 hover:bg-purple-500/20 bg-transparent"
-                    onClick={() => window.open("https://codebyrd.com", "_blank")}
-                  >
-                    <ExternalLink size={16} className="mr-1" />
-                    Live Demo
-                  </Button>
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    className="border-gray-600 text-gray-300 hover:bg-gray-700 bg-transparent"
-                  >
-                    <Github size={16} className="mr-1" />
-                    Code
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* AWS Media Hub */}
             <Card className="bg-gray-900/50 border-gray-800 hover:border-blue-500/50 transition-all duration-300 group hover:scale-105 hover:shadow-xl hover:shadow-blue-500/10">
               <CardHeader>
@@ -609,15 +547,14 @@ export default function Portfolio() {
                   <Code size={20} />
                   AWS-Powered Media Hub
                 </CardTitle>
-                <CardDescription className="text-gray-300">Scalable Media Application</CardDescription>
+                <CardDescription className="text-gray-300">Serverless Video Streaming Platform</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-300 mb-4">
-                  Created a scalable media application utilizing AWS Lambda for backend processing, AWS S3 for storage,
-                  and CloudFront for content delivery.
+                  Architected a serverless video streaming platform. Built a Go-based Lambda backend with concurrent routines for metadata fetching, achieving 40% lower latency via CloudFront edge caching and 99.9% uptime.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {["AWS Lambda", "S3", "CloudFront", "React"].map((tech) => (
+                  {["AWS S3", "CloudFront", "Lambda", "Go", "React"].map((tech) => (
                     <Badge
                       key={tech}
                       variant="outline"
@@ -632,6 +569,7 @@ export default function Portfolio() {
                     size="sm"
                     variant="outline"
                     className="border-blue-500/50 text-blue-300 hover:bg-blue-500/20 bg-transparent"
+                    onClick={() => window.open("https://muadh-george-mediahub-inky.vercel.app/", "_blank")}
                   >
                     <ExternalLink size={16} className="mr-1" />
                     Demo
@@ -640,6 +578,7 @@ export default function Portfolio() {
                     size="sm"
                     variant="outline"
                     className="border-gray-600 text-gray-300 hover:bg-gray-700 bg-transparent"
+                    onClick={() => window.open("https://github.com/MuadhGeorge/AWS-Media-Hub", "_blank")}
                   >
                     <Github size={16} className="mr-1" />
                     Code
@@ -648,22 +587,21 @@ export default function Portfolio() {
               </CardContent>
             </Card>
 
-            {/* AeroSys */}
+            {/* GPU Branch Divergence Simulator */}
             <Card className="bg-gray-900/50 border-gray-800 hover:border-green-500/50 transition-all duration-300 group hover:scale-105 hover:shadow-xl hover:shadow-green-500/10">
               <CardHeader>
                 <CardTitle className="text-xl text-white flex items-center gap-2 group-hover:text-green-400 transition-colors duration-300">
                   <Code size={20} />
-                  AeroSys Flight Operations Platform
+                  GPU Branch Divergence Simulator
                 </CardTitle>
-                <CardDescription className="text-gray-300">High-Performance Web Application</CardDescription>
+                <CardDescription className="text-gray-300">Hardware-Accurate GPU Simulator</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-300 mb-4">
-                  Built a high-performance web application featuring RESTful and GraphQL APIs, improving data retrieval
-                  speeds and security with Auth0 integration.
+                  A hardware-accurate GPU simulator that parses NVIDIA SASS to detect thread divergence. Implemented a SIMT stack with immediate post-dominator reconvergence, resolving 100% of divergence cases in test workloads.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {["Node.js", "Express", "MySQL", "GraphQL"].map((tech) => (
+                  {["C++", "C", "CUDA", "Linux"].map((tech) => (
                     <Badge
                       key={tech}
                       variant="outline"
@@ -677,15 +615,8 @@ export default function Portfolio() {
                   <Button
                     size="sm"
                     variant="outline"
-                    className="border-green-500/50 text-green-300 hover:bg-green-500/20 bg-transparent"
-                  >
-                    <ExternalLink size={16} className="mr-1" />
-                    Demo
-                  </Button>
-                  <Button
-                    size="sm"
-                    variant="outline"
                     className="border-gray-600 text-gray-300 hover:bg-gray-700 bg-transparent"
+                    onClick={() => window.open("https://github.com/MuadhGeorge/GPU-Branch-Simulator", "_blank")}
                   >
                     <Github size={16} className="mr-1" />
                     Code
@@ -694,22 +625,21 @@ export default function Portfolio() {
               </CardContent>
             </Card>
 
-            {/* AI Educator */}
+            {/* Pacman Search Algorithms */}
             <Card className="bg-gray-900/50 border-gray-800 hover:border-pink-500/50 transition-all duration-300 group hover:scale-105 hover:shadow-xl hover:shadow-pink-500/10">
               <CardHeader>
                 <CardTitle className="text-xl text-white flex items-center gap-2 group-hover:text-pink-400 transition-colors duration-300">
                   <Code size={20} />
-                  AI Educator: Interactive Math Assistant
+                  Pacman Search Algorithms
                 </CardTitle>
-                <CardDescription className="text-gray-300">AI-Powered Educational Tool</CardDescription>
+                <CardDescription className="text-gray-300">Advanced AI Search Implementation</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-300 mb-4">
-                  Developed an AI-powered interactive chatbot for educational purposes, achieving rapid response times
-                  and optimized user interactions.
+                  Implemented advanced search algorithms (DFS, BFS, A*, and Minimax) to optimize autonomous agents. Designed heuristics that reduced search space expansion by over 60% in complex maze environments.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {["OpenAI GPT-3.5", "Flask", "Next.js"].map((tech) => (
+                  {["Python", "AI Search Algorithms"].map((tech) => (
                     <Badge
                       key={tech}
                       variant="outline"
@@ -723,15 +653,8 @@ export default function Portfolio() {
                   <Button
                     size="sm"
                     variant="outline"
-                    className="border-pink-500/50 text-pink-300 hover:bg-pink-500/20 bg-transparent"
-                  >
-                    <ExternalLink size={16} className="mr-1" />
-                    Demo
-                  </Button>
-                  <Button
-                    size="sm"
-                    variant="outline"
                     className="border-gray-600 text-gray-300 hover:bg-gray-700 bg-transparent"
+                    onClick={() => window.open("https://github.com/MuadhGeorge/pacman-search-algorithms", "_blank")}
                   >
                     <Github size={16} className="mr-1" />
                     Code
@@ -766,17 +689,17 @@ export default function Portfolio() {
               <CardContent>
                 <div className="flex flex-wrap gap-2">
                   {[
-                    "Kotlin",
-                    "Java",
                     "Python",
-                    "TypeScript",
-                    "JavaScript",
-                    "Go",
+                    "Java",
+                    "C++",
                     "C",
-                    "HTML5",
-                    "CSS",
-                    "MATLAB",
+                    "Go",
+                    "JavaScript",
+                    "TypeScript",
                     "SQL",
+                    "Swift",
+                    "C#",
+                    "R",
                   ].map((skill) => (
                     <Badge
                       key={skill}
@@ -794,12 +717,12 @@ export default function Portfolio() {
               <CardHeader>
                 <CardTitle className="text-lg text-white flex items-center gap-2">
                   <Zap className="text-blue-400" />
-                  Frameworks & Technologies
+                  Technologies
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
-                  {["React", "Next.js", "Tailwind CSS", "Node.js", "Express", "Flask", "GraphQL", "OpenAI API"].map(
+                  {["React", "Next.js", "Node.js", "CUDA", "TensorFlow", "GraphQL", "Tailwind CSS"].map(
                     (skill) => (
                       <Badge
                         key={skill}
@@ -818,21 +741,16 @@ export default function Portfolio() {
               <CardHeader>
                 <CardTitle className="text-lg text-white flex items-center gap-2">
                   <Award className="text-green-400" />
-                  Cloud & Databases
+                  Cloud Platforms
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
                   {[
                     "AWS Lambda",
-                    "S3",
+                    "AWS S3",
                     "CloudFront",
-                    "AppSync",
-                    "Google Cloud",
                     "Azure",
-                    "MySQL",
-                    "Cosmos DB",
-                    "Auth0",
                   ].map((skill) => (
                     <Badge
                       key={skill}
@@ -850,12 +768,12 @@ export default function Portfolio() {
               <CardHeader>
                 <CardTitle className="text-lg text-white flex items-center gap-2">
                   <Briefcase className="text-pink-400" />
-                  Tools & Practices
+                  Concepts & Skills
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
-                  {["Git", "Agile", "CI/CD", "Linux", "SQL"].map((skill) => (
+                  {["Compiler Design", "Operating Systems", "Virtual Memory", "AI/ML", "Neural Networks", "Database Normalization", "Agile"].map((skill) => (
                     <Badge
                       key={skill}
                       variant="secondary"

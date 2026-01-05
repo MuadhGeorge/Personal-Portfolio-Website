@@ -81,6 +81,10 @@
     animation-delay: 2s;
   }
 
+  .animate-blur-in {
+    animation: blurIn 2s ease-out forwards;
+  }
+
   @keyframes float {
     0%,
     100% {
@@ -88,6 +92,17 @@
     }
     50% {
       transform: translateY(-20px);
+    }
+  }
+
+  @keyframes blurIn {
+    0% {
+      filter: blur(20px);
+      opacity: 0;
+    }
+    100% {
+      filter: blur(0);
+      opacity: 1;
     }
   }
 }
