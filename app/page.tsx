@@ -86,8 +86,8 @@ export default function Portfolio() {
   }
 
   const navItems = [
-    { id: "projects", label: "Work" },
     { id: "about", label: "About" },
+    { id: "projects", label: "Work" },
     { id: "contact", label: "Contact" },
   ]
 
