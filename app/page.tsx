@@ -86,12 +86,8 @@ export default function Portfolio() {
   }
 
   const navItems = [
-    { id: "hero", label: "Home" },
+    { id: "projects", label: "Work" },
     { id: "about", label: "About" },
-    { id: "education", label: "Education" },
-    { id: "experience", label: "Experience" },
-    { id: "projects", label: "Projects" },
-    { id: "skills", label: "Skills" },
     { id: "contact", label: "Contact" },
   ]
 
@@ -119,25 +115,28 @@ export default function Portfolio() {
             </div>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex space-x-1 items-center">
+            <div className="hidden md:flex gap-10 items-center">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`px-4 py-2 rounded-lg transition-all duration-300 font-medium ${
+                  className={`text-sm font-medium transition-all duration-300 relative ${
                     activeSection === item.id
-                      ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg"
-                      : "text-gray-300 hover:text-white hover:bg-gray-800"
+                      ? "text-white"
+                      : "text-gray-400 hover:text-white"
                   }`}
                 >
                   {item.label}
+                  {activeSection === item.id && (
+                    <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-purple-400"></span>
+                  )}
                 </button>
               ))}
               <a
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ml-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-medium hover:from-purple-700 hover:to-pink-700 transition-all duration-300 flex items-center gap-2"
+                className="ml-4 px-5 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-sm rounded-lg font-medium hover:from-purple-700 hover:to-pink-700 transition-all duration-300 flex items-center gap-2"
               >
                 <Download size={16} />
                 Resume
@@ -152,7 +151,7 @@ export default function Portfolio() {
 
           {/* Mobile Navigation Menu */}
           {isMenuOpen && (
-            <div className="md:hidden py-4 border-t border-gray-800">
+            <div className="md:hidden py-4 border-t border-gray-800 space-y-2">
               {navItems.map((item) => (
                 <button
                   key={item.id}
@@ -162,6 +161,15 @@ export default function Portfolio() {
                   {item.label}
                 </button>
               ))}
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full text-left py-3 px-4 text-purple-400 hover:text-purple-300 hover:bg-gray-800 rounded-lg transition-all duration-300"
+              >
+                <Download size={16} className="inline mr-2" />
+                Resume
+              </a>
             </div>
           )}
         </div>
@@ -194,12 +202,11 @@ export default function Portfolio() {
                 Muadh George
               </span>
             </h1>
-            <div className="text-2xl sm:text-3xl text-gray-300 mb-8 font-light">
-              <span className="inline-block animate-pulse">Software Engineer</span>
+            <div className="text-2xl sm:text-3xl text-gray-300 mb-6 font-light">
+              <span className="inline-block">Software Engineer</span>
             </div>
-            <p className="text-lg text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed">
-              Passionate about developing innovative software solutions and AI-driven applications that make a real
-              impact. Specializing in full-stack development, cloud technologies, and artificial intelligence.
+            <p className="text-base text-gray-500 max-w-2xl mx-auto mb-12 font-light">
+              Actively seeking New Grad Software Engineering roles and Internships for 2025.
             </p>
           </div>
 
